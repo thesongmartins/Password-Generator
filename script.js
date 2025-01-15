@@ -12,4 +12,20 @@ const generatePassword = (
   includeSymbols
 ) => {
   let characters = "";
+  if ((includeUpper, includeLower, includeNumbers, includeSymbols)) {
+    characters += upperCase;
+    characters += lowerCase;
+    characters += numbers;
+    characters += symbols;
+  }
+  if (characters === "") {
+    return "Select at least one option!";
+  }
+
+  let password = "";
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    password += characters[randomIndex];
+  }
+  return password;
 };
