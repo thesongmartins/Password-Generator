@@ -8,9 +8,11 @@
     <title>Password - Generator</title>
   </head>
   <body class="bg-slate-500 text-white">
-    <main class="container mx-auto bg-blue-900 p-10 mt-10 rounded">
+    <main class="container bg-blue-900 p-8 mt-10 rounded">
       <section>
-        <h1 class="font-mono flex items-center justify-center font-bold mt-5">
+        <h1
+          class="font-mono flex items-center justify-center font-bold text-xl mt-5"
+        >
           Password Generator
         </h1>
         <div class="flex flex-col items-center justify-center">
@@ -24,22 +26,30 @@
             value="12"
           />
         </div>
-        <br />
 
-        <input type="checkbox" id="uppercase" checked />
-        <label for="uppercase">Include Uppercase</label>
+        <div class="flex flex-col-reverse justify-center items-center mt-3">
+          <div class="flex flex-row-reverse gap-5">
+            <input type="checkbox" id="uppercase" checked />
+            <label for="uppercase">Include Uppercase</label>
+          </div>
 
-        <input type="checkbox" id="lowercase" checked />
-        <label for="lowercase">Include Lowercase</label>
+          <div class="flex flex-row-reverse gap-5">
+            <input type="checkbox" id="lowercase" checked />
+            <label for="lowercase">Include Lowercase</label>
+          </div>
 
-        <input type="checkbox" id="numbers" checked />
-        <label for="numbers">Include Numbers</label>
+          <div>
+            <input type="checkbox" id="numbers" checked />
+            <label for="numbers">Include Numbers</label>
+          </div>
 
-        <input type="checkbox" id="symbols" checked />
-        <label for="symbols">Include Symbols</label>
-        <br />
+          <div>
+            <input type="checkbox" id="symbols" checked />
+            <label for="symbols">Include Symbols</label>
+          </div>
+        </div>
 
-        <button id="generate">Generate Password</button>
+        <button class="" id="generate">Generate Password</button>
         <h2 id="password"></h2>
       </section>
     </main>
