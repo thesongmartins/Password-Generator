@@ -1,3 +1,11 @@
+// Selecting elements
+const generateEl = document.getElementById("generate");
+const lengthEl = document.getElementById("length");
+const uppercaseEl = document.getElementById("uppercase");
+const lowercaseEl = document.getElementById("lowercase");
+const numbersEl = document.getElementById("numbers");
+const symbolsEl = document.getElementById("symbols");
+const passwordEl = document.getElementById("password");
 // Character sets
 const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const lowerCase = "abcdefghijklmnopqrstuvwxyz";
@@ -30,12 +38,12 @@ const generatePassword = (
 };
 
 // Event listener for the Generate button
-document.getElementById("generate").addEventListener("click", () => {
-  const length = parseInt(document.getElementById("length").value);
-  const includeUpper = document.getElementById("uppercase").checked;
-  const includeLower = document.getElementById("lowercase").checked;
-  const includeNumbers = document.getElementById("numbers").checked;
-  const includeSymbols = document.getElementById("symbols").checked;
+generateEl.addEventListener("click", () => {
+  const length = parseInt(lengthEl.value);
+  const includeUpper = uppercaseEl.checked;
+  const includeLower = lowercaseEl.checked;
+  const includeNumbers = numbersEl.checked;
+  const includeSymbols = symbolsEl.checked;
 
   const password = generatePassword(
     length,
@@ -44,5 +52,5 @@ document.getElementById("generate").addEventListener("click", () => {
     includeNumbers,
     includeSymbols
   );
-  document.getElementById("password").textContent = password;
+  passwordEl.textContent = password;
 });
