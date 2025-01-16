@@ -8,10 +8,12 @@
     <title>Password - Generator</title>
   </head>
   <body class="bg-slate-500 text-white">
-    <main class="container bg-blue-900 p-8 mt-10 rounded">
+    <main
+      class="container mx-[3.2rem] my-[8rem] max-w-max md:rounded-lg md:max-w-max md:mx-[15rem] md:my-[10rem] bg-blue-900 p-10 md:p-20 rounded lg:mx-[30rem]"
+    >
       <section>
         <h1
-          class="font-mono flex items-center justify-center font-bold text-xl mt-5"
+          class="font-mono flex items-center justify-center font-bold text-xl mt-2"
         >
           Password Generator
         </h1>
@@ -22,12 +24,14 @@
             type="number"
             id="length"
             min="4"
-            max="50"
+            max="20"
             value="12"
           />
         </div>
 
-        <div class="flex flex-col-reverse justify-center items-center mt-3">
+        <div
+          class="flex flex-col-reverse justify-center items-center gap-3 mt-3 -tracking-tighter"
+        >
           <div class="flex flex-row-reverse gap-5">
             <input type="checkbox" id="uppercase" checked />
             <label for="uppercase">Include Uppercase</label>
@@ -38,19 +42,29 @@
             <label for="lowercase">Include Lowercase</label>
           </div>
 
-          <div>
+          <div class="flex flex-row-reverse gap-5">
             <input type="checkbox" id="numbers" checked />
             <label for="numbers">Include Numbers</label>
           </div>
 
-          <div>
+          <div class="flex flex-row-reverse gap-5">
             <input type="checkbox" id="symbols" checked />
             <label for="symbols">Include Symbols</label>
           </div>
         </div>
 
-        <button class="" id="generate">Generate Password</button>
-        <h2 id="password"></h2>
+        <div class="flex flex-col items-center justify-center">
+          <button
+            class="text-center bg-blue-400 rounded p-2 mt-2"
+            id="generate"
+          >
+            Generate Password
+          </button>
+          <h2
+            class="bg-white w-52 mt-3 p-2 text-center text-black rounded"
+            id="password"
+          ></h2>
+        </div>
       </section>
     </main>
   </body>
