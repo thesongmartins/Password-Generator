@@ -840,6 +840,14 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
+.placeholder\:p-3::-moz-placeholder {
+  padding: 0.75rem;
+}
+
+.placeholder\:p-3::placeholder {
+  padding: 0.75rem;
+}
+
 @media (min-width: 768px) {
   .md\:mx-28 {
     margin-left: 7rem;
