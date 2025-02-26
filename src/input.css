@@ -1,4 +1,181 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+section{
+    width: 100%;
+}
+body{
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10rem;
+    font-family: "Roboto Mono", serif;
+}
+.child1{
+    color: rgba(75, 75, 75, 0.692);
+    backdrop-filter:blur(10px);
+    font-size: 1.5rem;
+}
+.sub-container{
+    background-color: rgba(75, 75, 75, 0.692);
+    margin-top: 10px;
+    backdrop-filter:blur(10px);    
+    padding: 2rem;
+    width: 100%;
+}
+.password-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background: #444;
+    padding: 8px;
+}
+.password-container input{   
+  border: none;
+  background: #444;
+  color: #fff; 
+  font-size: 16px;
+  width: 150px;
+  text-align: center;
+  outline: none;
+}
+::placeholder{
+    color: #fff;
+}
+.password-container button{
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #64ff9b;
+  margin-right: 15px;
+}
+.password-container button:hover{
+  color: #fff;
+}
+.password-container button:active{
+  color: #fff;
+}
+ .slider-container {
+    display: flex;
+    font-family:"Roboto Mono", serif ;
+    margin: auto;
+    /* width: 80%; */
+    justify-content: center;
+    flex-direction: column;
+ }
+ .slider-container label{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+ }
+  .slider-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .slider-container input{
+    margin: 1rem 0;
+  }
+  input[type="range"] {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 5px;
+    background: black;
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background:#fff;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  input[type="range"]::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background:#fff;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  #lengthValue {
+    font-size: 18px;
+    color: #64ff9b;
+    font-weight: bold;
+  }
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #bbb; 
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 8px;
+  }
+
+  .checkbox-container input {
+    display: none; 
+  }
+  .checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #bbb;
+    border-radius: 2px;
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+  }
+  .checkmark:hover{
+    border: 1px solid #64ff9b;
+  }
+  .checkbox-container input:checked + .checkmark {
+    background: #64ff9b; 
+    border-color: #64ff9b;
+  }
+  .checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 4px;
+    top: 0px;
+    width: 5px;
+    height: 10px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .checkbox-container input:checked + .checkmark::after {
+    display: block;
+  }
+  .sub-container button{
+     background-color: #64ff9b;
+     border: none;
+     margin-top: 20px;
+     width: 100%;
+     height: 35px;
+  }
+.sub-container button span{
+    margin-left: 20px;
+}
+.sub-container button:hover{
+  border:1px solid #64ff9b;
+  background: none;
+  color: #64ff9b;
+  cursor: pointer;
+}
 

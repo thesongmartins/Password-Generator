@@ -3,68 +3,72 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../public/output.css" />
+    <!-- <link rel="stylesheet" href="../public/output.css" /> -->
+    <link rel="stylesheet" href="./src/input.css">
     <script defer src="./src/script.js"></script>
     <title>Password - Generator</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   </head>
-  <body class="bg-slate-500 text-white">
-    <main
-      class="container mx-[3.2rem] my-[8rem] max-w-max md:rounded-lg md:max-w-max md:mx-[15rem] md:my-[10rem] bg-blue-900 p-10 md:p-20 rounded lg:mx-[30rem]"
-    >
+  <body>
+   <main>
       <section>
-        <h1
-          class="font-mono flex items-center justify-center font-bold text-xl mt-2"
-        >
-          Password Generator
-        </h1>
-        <div class="flex flex-col items-center justify-center">
-          <label class="-tracking-tighter" for="length">Password length:</label>
-          <input
-            class="mt-2 rounded font-bold p-2 w-52 text-black text-center"
-            type="number"
-            id="length"
-            min="4"
-            max="20"
-            value="12"
-          />
-        </div>
-
-        <div
-          class="flex flex-col-reverse justify-center items-center gap-3 mt-3 -tracking-tighter"
-        >
-          <div class="flex flex-row-reverse gap-5">
-            <input type="checkbox" id="uppercase" checked />
-            <label for="uppercase">Include Uppercase</label>
-          </div>
-
-          <div class="flex flex-row-reverse gap-5">
-            <input type="checkbox" id="lowercase" checked />
-            <label for="lowercase">Include Lowercase</label>
-          </div>
-
-          <div class="flex flex-row-reverse gap-5">
-            <input type="checkbox" id="numbers" checked />
-            <label for="numbers">Include Numbers</label>
-          </div>
-
-          <div class="flex flex-row-reverse gap-5">
-            <input type="checkbox" id="symbols" checked />
-            <label for="symbols">Include Symbols</label>
-          </div>
-        </div>
-
-        <div class="flex flex-col items-center justify-center">
-          <button
-            class="text-center bg-blue-400 rounded p-2 mt-2"
-            id="generate"
-          >
-            Generate Password
+        <p class="child1">Password Generator</p>
+        <div class="password-container">
+          <input type="text" id="password" value="PTx1f5DaFX" readonly>
+          <button onclick="copyPassword()">
+           <span><i class="fa-regular fa-copy"></i></span>
           </button>
-          <div class="bg-white w-52 mt-3 p-2 text-center text-black rounded">
-            <h2 id="password"></h2>
+        </div>
+        <p id="copyMessage"></p>
+        <div class="sub-container">
+      
+          <div class="slider-container">
+            <label for="charLength">Character Length
+              <span id="lengthValue">10</span>
+            </label>
+            <div class="slider-wrapper">
+              <input type="range" id="charLength" min="4" max="20" value="10" oninput="updateValue(this.value)">
+            </div>
+          </div>
+
+          <label class="checkbox-container">
+            <input type="checkbox" checked>
+            <span class="checkmark"></span>
+            Include Uppercase Letters
+          </label>
+          
+          <label class="checkbox-container">
+            <input type="checkbox" checked>
+            <span class="checkmark"></span>
+            Include Lowercase Letters
+          </label>
+          
+          <label class="checkbox-container">
+            <input type="checkbox" checked>
+            <span class="checkmark"></span>
+            Include Numbers
+          </label>
+          
+          <label class="checkbox-container">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            Include Symbols
+          </label>
+          
+          <div>
+            <button id="generate" onclick="generatePassword()">GENERATE
+              <span><i class="fa-solid fa-arrow-right"></i></span>
+            </button>
+            <div>
+              <h2 id="password"></h2>
+            </div>
           </div>
         </div>
       </section>
-    </main>
+   </main>
   </body>
 </html>
