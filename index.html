@@ -4,71 +4,85 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <link rel="stylesheet" href="../public/output.css" /> -->
-    <link rel="stylesheet" href="./src/input.css">
+    <link rel="stylesheet" href="./src/input.css" />
     <script defer src="./src/script.js"></script>
     <title>Password - Generator</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
   </head>
   <body>
-   <main>
+    <main>
       <section>
         <p class="child1">Password Generator</p>
         <div class="password-container">
-          <input type="text" id="password" value="PTx1f5DaFX" readonly>
-          <button onclick="copyPassword()">
-           <span><i class="fa-regular fa-copy"></i></span>
+          <input type="text" value="PTx1f5DaFX" id="password" readonly />
+          <button class="copypassword">
+            <span><i class="fa-regular fa-copy"></i></span>
           </button>
         </div>
         <p id="copyMessage"></p>
         <div class="sub-container">
-      
           <div class="slider-container">
-            <label for="charLength">Character Length
+            <label for="charLength"
+              >Character Length
               <span id="lengthValue">10</span>
             </label>
             <div class="slider-wrapper">
-              <input type="range" id="charLength" min="4" max="20" value="10" oninput="updateValue(this.value)">
+              <input
+                type="range"
+                id="charLength"
+                min="4"
+                max="20"
+                value="10"
+                oninput="updateValue(this.value)"
+              />
             </div>
           </div>
 
           <label class="checkbox-container">
-            <input type="checkbox" checked>
+            <input type="checkbox" id="uppercase" checked />
             <span class="checkmark"></span>
             Include Uppercase Letters
           </label>
-          
+
           <label class="checkbox-container">
-            <input type="checkbox" checked>
+            <input type="checkbox" id="lowercase" checked />
             <span class="checkmark"></span>
             Include Lowercase Letters
           </label>
-          
+
           <label class="checkbox-container">
-            <input type="checkbox" checked>
+            <input type="checkbox" id="numbers" checked />
             <span class="checkmark"></span>
             Include Numbers
           </label>
-          
+
           <label class="checkbox-container">
-            <input type="checkbox">
+            <input type="checkbox" id="symbols" checked />
             <span class="checkmark"></span>
             Include Symbols
           </label>
-          
+
           <div>
-            <button id="generate" onclick="generatePassword()">GENERATE
+            <button id="generate" class="generate">
+              GENERATE
               <span><i class="fa-solid fa-arrow-right"></i></span>
             </button>
-            <div>
+            <!-- <div>
               <h2 id="password"></h2>
-            </div>
+            </div> -->
           </div>
         </div>
       </section>
-   </main>
+    </main>
   </body>
 </html>
