@@ -1,113 +1,78 @@
-// // Selecting elements
-// const generateEl = document.getElementById("generate");
-// const lengthEl = document.getElementById("length");
-// const uppercaseEl = document.getElementById("uppercase");
-// const lowercaseEl = document.getElementById("lowercase");
-// const numbersEl = document.getElementById("numbers");
-// const symbolsEl = document.getElementById("symbols");
-// const passwordEl = document.getElementById("password");
-// // Character sets
-// const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-// const lowerCase = "abcdefghijklmnopqrstuvwxyz";
-// const numbers = "0123456789";
-// const symbols = "!@#$%^&*()_+[]{}|;:',.<>?/";
+// Selecting elements
+const copyPassword = document.querySelector(".copypassword");
+const passwordField = document.getElementById("password");
+const message = document.getElementById("copyMessage");
+const generateEl = document.getElementById("generate");
+const lengthEl = document.getElementById("charLength");
+const uppercaseEl = document.getElementById("uppercase");
+const lowercaseEl = document.getElementById("lowercase");
+const numbersEl = document.getElementById("numbers");
+const symbolsEl = document.getElementById("symbols");
+const lengthVal = document.getElementById("lengthValue");
 
-// // Function to generate a random password
-// const generatePassword = (
-//   length,
-//   includeUpper,
-//   includeLower,
-//   includeNumbers,
-//   includeSymbols
-// ) => {
-//   let characters = "";
-//   if (includeUpper) characters += upperCase;
-//   if (includeLower) characters += lowerCase;
-//   if (includeNumbers) characters += numbers;
-//   if (includeSymbols) characters += symbols;
+const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const lowerCase = "abcdefghijklmnopqrstuvwxyz";
+const numbers = "0123456789";
+const symbols = "!@#$%^&*()_+[]{}|;:',.<>?/";
 
-//   if (characters === "") return "Select at least one option!";
+// Function to generate a random password
+const generatePassword = (
+  length,
+  includeUpper,
+  includeLower,
+  includeNumbers,
+  includeSymbols
+) => {
+  let characters = "";
+  if (includeUpper) characters += upperCase;
+  if (includeLower) characters += lowerCase;
+  if (includeNumbers) characters += numbers;
+  if (includeSymbols) characters += symbols;
 
-//   let password = "";
-//   for (let i = 0; i < length; i++) {
-//     const randomIndex = Math.floor(Math.random() * characters.length);
-//     password += characters[randomIndex];
-//   }
+  if (characters === "") return "Select at least one option!";
 
-//   return password;
-// };
+  let password = "";
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    password += characters[randomIndex];
+  }
+
+  return password;
+};
 
 // // Event listener for the Generate button
-// generateEl.addEventListener("click", () => {
-//   const length = parseInt(lengthEl.value);
-//   const includeUpper = uppercaseEl.checked;
-//   const includeLower = lowercaseEl.checked;
-//   const includeNumbers = numbersEl.checked;
-//   const includeSymbols = symbolsEl.checked;
+generateEl.addEventListener("click", () => {
+  const length = parseInt(lengthEl.value);
+  const includeUpper = uppercaseEl.checked;
+  const includeLower = lowercaseEl.checked;
+  const includeNumbers = numbersEl.checked;
+  const includeSymbols = symbolsEl.checked;
+  console.log("Clicked");
 
-//   const password = generatePassword(
-//     length,
-//     includeUpper,
-//     includeLower,
-//     includeNumbers,
-//     includeSymbols
-//   );
-//   passwordEl.textContent = password;
-// });
-function updateValue(val) {
-  document.getElementById("lengthValue").textContent = val;
-}
+  // Calling the generate random password function
+  const password = generatePassword(
+    length,
+    includeUpper,
+    includeLower,
+    includeNumbers,
+    includeSymbols
+  );
+  console.log(password);
+  passwordField.value = password;
+});
 
-function generatePassword() {
-  const length = document.getElementById("lengthRange").value;
-  const useUppercase = document.getElementById("uppercase").checked;
-  const useLowercase = document.getElementById("lowercase").checked;
-  const useNumbers = document.getElementById("numbers").checked;
-  const useSymbols = document.getElementById("symbols").checked;
-
-  const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
-  const numberChars = "0123456789";
-  const symbolChars = "!@#$%^&*()_+=-{}[];:'\",.<>?/|";
-
-  let allowedChars = "";
-  let password = "";
-
-  if (useUppercase) allowedChars += uppercaseChars;
-  if (useLowercase) allowedChars += lowercaseChars;
-  if (useNumbers) allowedChars += numberChars;
-  if (useSymbols) allowedChars += symbolChars;
-
-  if (allowedChars.length === 0) {
-    document.getElementById("password").value = "Select at least one option!";
-    return;
-  }
-
-  for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * allowedChars.length);
-    password += allowedChars[randomIndex];
-  }
-
-  document.getElementById("password").value = password;
-}
-
-function copyPassword() {
-  const passwordField = document.getElementById("password");
-  passwordField.select();
-  document.execCommand("copy");
-}
-
-function copyPassword() {
-  const passwordField = document.getElementById("password");
+// Event listener for copying the password
+copyPassword.addEventListener("click", () => {
   passwordField.select();
   passwordField.setSelectionRange(0, 99999); // For mobile devices
   navigator.clipboard.writeText(passwordField.value);
-  
+
   // Show confirmation message
-  const message = document.getElementById("copyMessage");
-  message.textContent = "Copied!";
-  setTimeout(() => { message.textContent = ""; }, 1500);
-}
-function updateValue(val) {
-  document.getElementById("lengthValue").textContent = val;
-}
+  message.textContent = "Password Copied!";
+  setTimeout(() => {
+    message.textContent = "";
+  }, 1500);
+});
+
+// Updating the of character length function
+const updateValue = (val) => (lengthVal.textContent = val);
